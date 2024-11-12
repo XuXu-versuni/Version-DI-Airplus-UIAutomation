@@ -210,7 +210,14 @@ def back_to_support_from_faq():
 
 # 点击访问官网按钮
 def click_website():
-    logger.info("Clicking website...")
+    """
+    该函数通过模拟用户点击操作，访问应用程序的官方支持页面。
+    首先，它记录了点击操作的开始。
+    然后,使用poco库找到具有特定ID的元素并执行点击操作。
+    等待3秒,以确保页面有足够的时间加载。
+    最后,断言浏览器URL栏中的文本与预期的URL相匹配,以确认正确加载了目标页面。
+    """
+    logger.info("点击网站...")
     poco("com.philips.ph.homecare:id/support_website_id").click()
     sleep(3)
     assert_equal(poco("com.sec.android.app.sbrowser:id/custom_tab_toolbar_url_bar_text").get_text(), "https://www.philips.co.uk/c-w/support-home.html", "进入app support页面")
@@ -227,6 +234,12 @@ def check_about_page():
     logger.info("Checking about page...")
     poco("com.philips.ph.homecare:id/settings_about_id").click()
     assert_equal(poco("android.widget.TextView").get_text(), "About", "进入app about页面")
+# 检查app profile页面关于页面内容,这里仅做示例，实际应用中需要根据实际情况进行修改。
+def check_about_page_content():
+    logger.info("检查app页面~~")
+    poco("com.philips.ph.homecare:id/settings_about_id").click()
+    assert_exists(Template(r"tpl1730360578375.png", record_pos=(-0.003, -0.708), resolution=(1080, 2340), threshold=0.98), "app页面已显示")
+
 
 # 点击网站按钮
 def click_about_website():
@@ -249,8 +262,14 @@ def click_terms_of_use():
 
 # 返回到about页面
 def back_to_about_from_terms():
+    """
+    从terms页面返回到about页面。
+    这个函数通过模拟用户点击导航返回按钮来实现页面跳转。
+    """
     logger.info("Returning to about page from terms...")
     poco("Navigate up").click()
+
+    
 def main():
     try:
         # 启动Air+ app

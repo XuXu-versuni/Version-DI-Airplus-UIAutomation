@@ -28,8 +28,7 @@ def install_apk_from_local(apk_path, package_name):
   
     print(f"Installing {apk_path}...")  
     run_adb_command(f'adb install -r "{apk_path}"')  
-    print(f"Successfully installed {package_name}")  
-  
+    print(f"Successfully installed {package_name}")
   
 def launch_app(package_name):  
     """启动应用"""  

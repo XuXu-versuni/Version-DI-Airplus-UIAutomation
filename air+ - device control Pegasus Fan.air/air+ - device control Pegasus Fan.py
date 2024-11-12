@@ -97,6 +97,9 @@ sleep(1)
 #断言当前旋转角度为90
 assert_exists(Template(r"tpl1729135393966.png", record_pos=(0.0, 0.486), resolution=(1080, 2340), threshold = 0.98), "当前旋转角度为90")
 
+
+
+
 #将旋转角度恢复初始
 poco("com.philips.ph.homecare:id/philips_control_oscillation_btn_id").click()
 poco("com.philips.ph.homecare:id/philips_control_sheet_seekbar").swipe([-0.6036, 0.0099])
