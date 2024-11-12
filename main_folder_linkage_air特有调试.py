@@ -6,11 +6,13 @@ import importlib.util
 from airtest.core.api import *
 from airtest.cli.parser import cli_setup
 
-if not cli_setup():
-    auto_setup(__file__, logdir=True, devices=["Android:///",])
 
-
-# script content
+# # 如果cli_setup函数返回False，则表明CLI环境未正确设置，需要进行自动设置
+# if not cli_setup():
+#     # 调用auto_setup函数，使用当前文件路径进行设置，并指定日志目录和设备连接信息
+#     auto_setup(__file__, logdir=True, devices=["Android://127.0.0.1:5037",])
+    
+# 脚本从这里开始执行，表示程序的开始
 print("start...")
 
 
@@ -18,11 +20,15 @@ print("start...")
 # from airtest.report.report import simple_report
 # simple_report(__file__, logpath=True)
 
-
-
 from airtest.core.api import *
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 
+
+
+if not cli_setup():
+    auto_setup(__file__, logdir=True, devices=["Android://127.0.0.1:5037",])
+
+    
 # 定义脚本路径
 SCRIPTS = [
     # "air+ - install.air/air+ - install.py",
