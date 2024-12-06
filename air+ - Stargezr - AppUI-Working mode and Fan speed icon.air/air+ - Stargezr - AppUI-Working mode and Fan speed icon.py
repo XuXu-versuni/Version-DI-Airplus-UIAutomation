@@ -20,13 +20,13 @@ auto_setup(__file__)
 poco(text="Air+").click()
 sleep(10)
 
-poco(text="Air+").click()
-sleep(10)
-poco(text="Air+").click()
-sleep(10)
+# poco(text="Air+").click()
+# sleep(10)
+# poco(text="Air+").click()
+# sleep(10)
 
 
-
+####
 
 
 #点击设备主页工作模式选项按钮
