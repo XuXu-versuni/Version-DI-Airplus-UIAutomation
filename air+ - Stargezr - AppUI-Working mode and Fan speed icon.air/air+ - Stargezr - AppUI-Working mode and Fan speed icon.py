@@ -20,7 +20,9 @@ auto_setup(__file__)
 poco(text="Air+").click()
 sleep(10)
 
-
+poco(text="Air+").click()
+sleep(10)poco(text="Air+").click()
+sleep(10)
 
 
 
