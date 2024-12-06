@@ -1,0 +1,1 @@
+{"tag": "function", "depth": 1, "time": 1733218967.383826, "data": {"name": "connect_device", "call_args": {"uri": "android://127.0.0.1:5037/09181FDD4000E1?ori_method=ADBORI&touch_method=MAXTOUCH&"}, "start_time": 1733218967.240646, "ret": "<Android '09181FDD4000E1'>", "end_time": 1733218967.3837981}}

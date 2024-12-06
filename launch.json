@@ -1,0 +1,39 @@
+"git.autofetch": true,
+"update.showReleaseNotes": false,
+"editor.fontSize": 16,
+"git.enableSmartCommit": true,
+"python.autoComplete.extraPaths": [
+    
+],
+"python.defaultInterpreterPath": "/usr/local/bin/python3",
+"launch": {
+    
+    "configurations": [],
+    "compounds": []
+}
+
+
+{
+    //s使用IntelliSense了解相关属性
+    //悬停以查看现有属性的描述
+    //
+    "version": "0.2.0",
+    "configurations": [
+        {
+            /// Library/Frameworks/Python.framework/Versions/3.7/bin/python3
+            /// usr/local/bin/python3
+            "python": "usr/local/bin/python3",  # 指定python解释器
+            "name": "Python: Main_linkage_script",
+            "type": "python",
+            "request": "launch",
+            "program": "/home/axjia/train.py",
+            "console": "integratedTerminal",
+            //"env": {"CUDA_VISIBLE_DEVICES":"0,1"},   # 指定显卡
+            //"args": ["--train_dir", "./input/train_data",   # 命令行参数
+            //    "--dev_dir", "./input/valid_data",
+
+            ],
+            "justMyCode": true   # 调试封装包里面的代码，可以在里面打断点
+        }
+    ]
+}
