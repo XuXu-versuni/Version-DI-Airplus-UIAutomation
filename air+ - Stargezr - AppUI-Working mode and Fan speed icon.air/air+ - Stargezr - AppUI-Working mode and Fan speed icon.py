@@ -20,6 +20,12 @@ auto_setup(__file__)
 poco(text="Air+").click()
 sleep(10)
 
+
+
+
+
+
+
 #点击设备主页工作模式选项按钮
 poco("com.philips.ph.homecare:id/dashboard_control_auto_btn").click()
 sleep(1)
