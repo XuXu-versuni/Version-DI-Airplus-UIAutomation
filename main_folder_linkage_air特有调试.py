@@ -14,16 +14,12 @@ from airtest.cli.parser import cli_setup
     
 # 脚本从这里开始执行，表示程序的开始
 print("start...")
-
-
 # generate html report
 # from airtest.report.report import simple_report
 # simple_report(__file__, logpath=True)
 
 from airtest.core.api import *
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-
-
 
 if not cli_setup():
     auto_setup(__file__, logdir=True, devices=["Android://127.0.0.1:5037",])
@@ -33,7 +29,8 @@ if not cli_setup():
 SCRIPTS = [
     # "air+ - install.air/air+ - install.py",
     # "air+ - device control block.air/air+ - device control block.py",
-    "air+ - Checking the profile page(No device).air/air+ - Checking the profile page(No device).py"
+    "air+ - Checking the profile page(No device).air/air+ - Checking the profile page(No device).py",
+    # "air+ - Unicorn M pro-AppUI-Product picture and model id.air/air+ - Unicorn M pro-AppUI-Product picture and model id.py"
 ]
 
 
@@ -50,7 +47,7 @@ def run_script(script_path):
         else:
             print(f"Script {script_path} does not have a main function.")
     except Exception as e:
-        print(f"Error running script {script_path}: {e}")
+        print(f"运行脚本错误，为什么错误，我不知道，就给你看看结果吧 {script_path}: {e}")
 
 def main():
     for script in SCRIPTS:

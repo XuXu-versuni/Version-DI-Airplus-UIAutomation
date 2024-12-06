@@ -13,30 +13,50 @@ import time
 #reload (sys)
 #sys.setdefaultencoding('utf-8')
   
-def run_adb_command(command):  
-    """运行ADB命令并返回输出"""  
-    #result = subprocess.run(command,capture_output=True, text=True, encoding='utf-8', shell=True)  
-    #result = subprocess.run(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE,universal_newlines=True,encoding='utf-8', shell=True)  
-    result = subprocess.run(['command'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True,encoding='utf-8',shell=True)  
-    if result.returncode != 0:  
-        raise Exception(f"ADB command failed: {result.stderr}")  
-    return result.stdout  
-def install_apk_from_local(apk_path, package_name):  
-    """从本地路径安装APK"""  
-    if not os.path.isfile(apk_path):  
-        raise FileNotFoundError(f"APK file {apk_path} does not exist.")  
-  
-    print(f"Installing {apk_path}...")  
-    run_adb_command(f'adb install -r "{apk_path}"')  
+def run_adb_command(command):
+    """
+    运行ADB命令并返回输出
+    参数:
+    command (str): 要执行的ADB命令字符串
+    返回:
+    str: ADB命令的输出结果
+    异常:
+    当ADB命令执行失败时抛出Exception异常
+    """
+    # 使用subprocess.run执行ADB命令
+    # 该方法允许我们捕获命令的输出并对其进行处理
+    # 这里使用了多个参数配置来确保能够正确执行命令并捕获输出
+    result = subprocess.run(['command'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True,encoding='utf-8',shell=True)
+    
+    # 检查命令是否执行成功
+    # 如果执行失败（返回码不为0），则抛出异常并包含错误信息
+    if result.returncode != 0:
+        raise Exception(f"ADB 命令 失效: {result.stderr}")
+    # if result.returncode != 0:
+    #     raise.Exception(f"ADB command failed: {result.stderr}")")
+    
+    # 如果执行成功，则返回命令的输出结果
+    return result.stdout
+def install_apk_from_local(apk_path, package_name):
+    """
+    从本地路径安装APK
+    参数:
+        apk_path (str): APK文件的本地路径
+        package_name (str): 要安装的应用的包名
+
+    参数 Raises:
+        FileNotFoundError: 如果指定路径的APK文件不存在
+    """
+    # 检查APK文件是否存在
+    if not os.path.isfile(apk_path):
+        raise FileNotFoundError(f"APK 文件 {apk_path} 不存在.")
+
+    # 输出安装信息
+    print(f"Installing {apk_path}...")
+    # 执行ADB命令安装APK
+    run_adb_command(f'adb install -r "{apk_path}"')
+    # 输出安装成功信息
     print(f"Successfully installed {package_name}")
-  
-def launch_app(package_name):  
-    """启动应用"""  
-    print(f"Launching {package_name}...")  
-    run_adb_command(f'adb shell monkey -p {package_name} -c android.intent.category.LAUNCHER 1')  
-    time.sleep(5)  # 等待应用启动  
-    print(f"{package_name} launched successfully")  
-  
   
 def check_app_functionality(package_name):  
     """检查应用功能"""  
