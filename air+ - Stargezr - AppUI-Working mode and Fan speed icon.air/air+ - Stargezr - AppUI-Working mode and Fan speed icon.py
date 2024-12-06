@@ -16,14 +16,26 @@ auto_setup(__file__)
 """本shell 对应 测试用例：https://nutriu.atlassian.net/browse/CH-60
    下列20到200行对应 测试用例：https://nutriu.atlassian.net/browse/CH-60
 """
+
+
 # 打开 Air+ App
 poco(text="Air+").click()
 sleep(10)
 
-# poco(text="Air+").click()
-# sleep(10)
-# poco(text="Air+").click()
-# sleep(10)
+
+#xuxu优化判断逻辑和代买可读和上面的打开 Air+ App这个用例
+from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+from airtest.core.api import sleep
+poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+
+# 显式等待目标元素出现
+target_element = poco(text="Air+").wait_for_appearance(10)
+if target_element.exists():
+    target_element.click()
+else:
+    print("Element not found within the specified time.")
+
+
 
 
 
