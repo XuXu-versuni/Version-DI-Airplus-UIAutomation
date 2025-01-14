@@ -15,7 +15,8 @@ auto_setup(__file__)
 start_app("com.philips.ph.homecare")
 assert_equal(poco("com.philips.ph.homecare:id/dashboard_section_title").get_text(),"My Devices","app打开成功")
 # 进入设备控制页面
-poco(desc="https://air-matters.com/app/philips/dark_mode/AC3420_10.png").click()
+poco(desc="https://air-matters.com/app/philips/dark_mode/AC3421_13.png").click()
+sleep(2.0)
 poco("com.philips.ph.homecare:id/purifier_control_scroll").swipe([-0.0213, -0.6634])
 
 # https://nutriu.atlassian.net/browse/CH-1596
